@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KidZone - Stories & Learning Games</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: #f0f8ff; margin: 0; padding: 0; color: #333; }
+        header { background: #ff6b6b; color: white; text-align: center; padding: 25px 15px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+        header h1 { margin: 0; font-size: 28px; }
+        header p { margin: 5px 0 0 0; font-size: 14px; opacity: 0.9; }
+        
+        .nav-tabs { display: flex; justify-content: center; background: #ffffff; padding: 10px; gap: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        .nav-tabs button { background: #4ecdc4; color: white; border: none; padding: 10px 20px; font-size: 15px; font-weight: bold; border-radius: 20px; cursor: pointer; transition: 0.2s; }
+        .nav-tabs button.active { background: #ffbe0b; color: #333; }
+        
+        .container { max-width: 700px; margin: 20px auto; padding: 0 15px; }
+        .section { display: none; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .section.active { display: block; }
+        
+        .card { background: #f9f9f9; border: 1px solid #e0e0e0; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
+        .card h3 { color: #ff6b6b; margin-top: 0; }
+        
+        /* Ad Box Styling */
+        .ad-box { background: #e9ecef; border: 2px dashed #adb5bd; text-align: center; padding: 15px; margin: 15px 0; border-radius: 8px; color: #6c757d; font-weight: bold; font-size: 13px; }
+        
+        /* Story Reader View */
+        .story-reader { display: none; background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .back-btn { background: #6c757d; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; margin-bottom: 15px; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🌟 KidZone Hub 🌟</h1>
+        <p>Fun Bedtime Stories & Exciting Learning Games for Kids!</p>
+    </header>
+
+    <div class="nav-tabs">
+        <button id="btn-stories" class="active" onclick="switchTab('stories')">📚 Stories</button>
+        <button id="btn-games" onclick="switchTab('games')">🎮 Fun Games</button>
+    </div>
+
+    <div class="container">
+        <!-- AD SLOT 1: Top Header Banner -->
+        <div class="ad-box">
+            📢 Ad Slot 1 (Top Header Banner)
+        </div>
+
+        <!-- STORIES LIST SECTION -->
+        <div id="stories" class="section active">
+            <h2>Magical Children's Stories</h2>
+            
+            <div class="card">
+                <h3>The Brave Little Turtle</h3>
+                <p>Once upon a time, near a sparkling blue stream, lived a little turtle named Timmy who wanted to see the top of the big hill...</p>
+                <button onclick="openStory('turtle')" style="background:#ff6b6b; color:white; border:none; padding:8px 15px; border-radius:5px; cursor:pointer;">Read Full Story</button>
+            </div>
+
+            <!-- AD SLOT 2: Between Stories -->
+            <div class="ad-box">
+                📢 Ad Slot 2 (Between Story Cards)
+            </div>
+
+            <div class="card">
+                <h3>The Generous Star</h3>
+                <p>High up in the night sky, a tiny star noticed a lost puppy down on Earth and decided to use its bright light to guide him home...</p>
+                <button onclick="openStory('star')" style="background:#ff6b6b; color:white; border:none; padding:8px 15px; border-radius:5px; cursor:pointer;">Read Full Story</button>
+            </div>
+        </div>
+
+        <!-- INDIVIDUAL STORY READER PAGE (Hidden by default, opens when a story is clicked) -->
+        <div id="story-reader-view" class="story-reader">
+            <button class="back-btn" onclick="backToStories()">⬅ Back to Stories</button>
+            <h2 id="reader-title" style="color: #ff6b6b; margin-top: 0;"></h2>
+            
+            <!-- AD SLOT 5: Inside the Story Reading Page -->
+            <div class="ad-box">
+                📢 Ad Slot 5 (Inside Story Reading Page)
+            </div>
+
+            <div id="reader-content" style="line-height: 1.6; font-size: 16px; color: #444;"></div>
+        </div>
+
+        <!-- GAMES SECTION -->
+        <div id="games" class="section">
+            <h2>Interactive Learning Games</h2>
+            
+            <!-- AD SLOT 3: Above Games Panel -->
+            <div class="ad-box">
+                📢 Ad Slot 3 (Above Games Panel)
+            </div>
+
+            <div class="card" style="text-align: center;">
+                <h3>Maths Quick Quiz</h3>
+                <p>Solve 5 + 3 = ?</p>
+                <input type="number" id="quizAns" placeholder="Enter answer" style="padding: 8px; width: 120px; text-align: center;">
+                <button onclick="checkGameAns()" style="background:#4ecdc4; color:white; border:none; padding:8px 15px; border-radius:5px; cursor:pointer; font-weight:bold;">Submit</button>
+                <p id="gameFeedback" style="font-weight: bold; margin-top: 10px;"></p>
+            </div>
+        </div>
+
+        <!-- AD SLOT 4: Bottom Footer Banner -->
+        <div class="ad-box">
+            📢 Ad Slot 4 (Bottom Footer Banner)
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            document.getElementById('stories').style.display = 'none';
+            document.getElementById('games').style.display = 'none';
+            document.getElementById('story-reader-view').style.display = 'none';
+            document.getElementById('btn-stories').classList.remove('active');
+            document.getElementById('btn-games').classList.remove('active');
+
+            if (tabName === 'stories') {
+                document.getElementById('stories').style.display = 'block';
+                document.getElementById('btn-stories').classList.add('active');
+            } else if (tabName === 'games') {
+                document.getElementById('games').style.display = 'block';
+                document.getElementById('btn-games').classList.add('active');
+            }
+        }
+
+        function openStory(storyId) {
+            document.getElementById('stories').style.display = 'none';
+            document.getElementById('story-reader-view').style.display = 'block';
+
+            var title = "";
+            var text = "";
+
+            if (storyId === 'turtle') {
+                title = "The Brave Little Turtle";
+                text = "Once upon a time, near a sparkling blue stream, lived a little turtle named Timmy. While his brothers and sisters preferred to splash safely near the riverbank, Timmy always looked up at the big green hill in the distance.<br><br>One sunny morning, Timmy decided it was time for an adventure. He tucked in his arms, took a deep breath, and started crawling up the slope. Along the way, he met a friendly butterfly who encouraged him when the ground got steep.<br><br>By late afternoon, Timmy reached the very top. The view of the whole valley below was breathtaking! Timmy learned that even the smallest traveler can achieve big things with a little bit of courage and patience.";
+            } else if (storyId === 'star') {
+                title = "The Generous Star";
+                text = "High up in the night sky, surrounded by millions of shining celestial bodies, lived a tiny star who felt he wasn't bright enough to matter.<br><br>One quiet evening, a little puppy got lost in a dark forest down on Earth, whimpering and unable to find his way home. The big stars were too far away to notice, but the tiny star saw the puppy's plight.<br><br>Gathering all his inner strength, the tiny star shone brighter than he ever had before, casting a warm, comforting beam right through the trees. The puppy followed the golden light straight back to his owners' porch.<br><br>From that night on, the tiny star realized you don't have to be the biggest to make a massive difference in someone's world.";
+            }
+
+            document.getElementById('reader-title').innerText = title;
+            document.getElementById('reader-content').innerHTML = text;
+        }
+
+        function backToStories() {
+            document.getElementById('story-reader-view').style.display = 'none';
+            document.getElementById('stories').style.display = 'block';
+        }
+
+        function checkGameAns() {
+            var val = document.getElementById('quizAns').value;
+            var feedback = document.getElementById('gameFeedback');
+            if (val == "8") {
+                feedback.style.color = "green";
+                feedback.innerText = "🎉 Correct! Great job!";
+            } else {
+                feedback.style.color = "red";
+                feedback.innerText = "❌ Try again!";
+            }
+        }
+    </script>
+</body>
+</html>
