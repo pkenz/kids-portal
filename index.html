@@ -4,13 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KidZone Hub - Stories, Videos & Games</title>
+    <!-- Importing Google Font: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: "Times New Roman", Times, serif;
-            font-size: 11pt;
+            font-family: 'Poppins', sans-serif;
+            font-size: 10pt;
         }
 
         body {
@@ -24,31 +26,32 @@
         header {
             background: linear-gradient(135deg, #1d4ed8, #2563eb, #3b82f6);
             color: white;
-            padding: 25px 15px;
+            padding: 24px 15px;
             text-align: center;
             box-shadow: 0 4px 15px rgba(29, 78, 216, 0.3);
             border-bottom: 4px solid #f59e0b;
         }
 
         header h1 {
-            font-size: 21pt;
-            font-weight: bold;
-            margin-bottom: 5px;
+            font-size: 18pt;
+            font-weight: 700;
+            margin-bottom: 4px;
             color: #ffffff;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
 
         header p {
-            font-size: 11pt;
+            font-size: 10pt;
             color: #e0f2fe;
+            font-weight: 400;
         }
 
         /* Modern Navigation Tabs */
         .nav-tabs {
             display: flex;
             justify-content: center;
-            gap: 10px;
-            padding: 14px;
+            gap: 8px;
+            padding: 12px;
             background: #ffffff;
             box-shadow: 0 2px 8px rgba(0,0,0,0.05);
             flex-wrap: wrap;
@@ -57,10 +60,10 @@
         .tab-btn {
             background: #e2e8f0;
             border: none;
-            padding: 8px 16px;
+            padding: 7px 16px;
             border-radius: 20px;
-            font-size: 11pt;
-            font-weight: bold;
+            font-size: 10pt;
+            font-weight: 600;
             color: #475569;
             cursor: pointer;
             transition: all 0.2s ease;
@@ -78,19 +81,19 @@
             padding: 0 12px;
         }
 
-        /* Compact, Colorful, Low-Attention Ad Slots (~40% lighter footprint) */
+        /* Narrow & Compact Ad Slots (~45% width) */
         .ad-slot {
             background: #fdf4ff;
             border: 1.5px dashed #f0abfc;
             color: #a21caf;
             text-align: center;
-            padding: 6px 10px;
-            max-width: 85%;
-            margin: 12px auto;
-            border-radius: 8px;
-            font-size: 9.5pt;
-            font-weight: bold;
-            opacity: 0.85;
+            padding: 4px 6px;
+            max-width: 45%;
+            margin: 10px auto;
+            border-radius: 6px;
+            font-size: 8.5pt;
+            font-weight: 600;
+            opacity: 0.8;
         }
 
         .section {
@@ -105,33 +108,34 @@
         .card {
             background: #ffffff;
             border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 15px;
+            padding: 16px;
+            margin-bottom: 14px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
             border: 1px solid #e2e8f0;
             border-left: 6px solid #2563eb;
         }
 
         .card h3 {
-            font-size: 14pt;
+            font-size: 12pt;
+            font-weight: 600;
             color: #0f172a;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
         .card p {
-            font-size: 11pt;
+            font-size: 10pt;
             color: #334155;
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
         .btn {
             background: #2563eb;
             color: white;
             border: none;
-            padding: 8px 16px;
+            padding: 7px 14px;
             border-radius: 6px;
-            font-size: 11pt;
-            font-weight: bold;
+            font-size: 10pt;
+            font-weight: 600;
             cursor: pointer;
             transition: background 0.2s;
             box-shadow: 0 2px 5px rgba(37, 99, 235, 0.3);
@@ -150,7 +154,7 @@
             background: #000;
             border-radius: 8px;
             overflow: hidden;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .video-container iframe {
@@ -176,26 +180,27 @@
 
         .modal-content {
             background: white;
-            padding: 24px;
+            padding: 22px;
             border-radius: 12px;
-            max-width: 500px;
+            max-width: 520px;
             width: 100%;
-            max-height: 80vh;
+            max-height: 82vh;
             overflow-y: auto;
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             border-top: 5px solid #2563eb;
         }
 
         .modal-content h2 {
-            font-size: 16pt;
+            font-size: 14pt;
+            font-weight: 700;
             color: #1d4ed8;
             margin-bottom: 10px;
         }
 
         .modal-content p {
-            font-size: 11pt;
+            font-size: 10pt;
             line-height: 1.8;
-            margin-bottom: 15px;
+            margin-bottom: 14px;
             color: #1e293b;
         }
 
@@ -206,14 +211,14 @@
             padding: 6px 14px;
             border-radius: 6px;
             cursor: pointer;
-            font-weight: bold;
+            font-weight: 600;
             float: right;
         }
 
         /* Quiz Box Styling */
         .quiz-box {
             background: #ffffff;
-            padding: 20px;
+            padding: 18px;
             border-radius: 12px;
             border: 1px solid #e2e8f0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -223,13 +228,14 @@
         .quiz-options button {
             display: block;
             width: 100%;
-            padding: 10px 14px;
-            margin: 8px 0;
+            padding: 9px 12px;
+            margin: 7px 0;
             background: #f8fafc;
             border: 1px solid #cbd5e1;
             border-radius: 8px;
             text-align: left;
-            font-size: 11pt;
+            font-size: 10pt;
+            font-weight: 500;
             color: #1e293b;
             cursor: pointer;
         }
@@ -249,50 +255,64 @@
 
     <div class="nav-tabs">
         <button class="tab-btn active" onclick="switchTab('stories')">📚 Read Stories</button>
-        <button class="tab-btn" onclick="switchTab('videos')">🎬 Watch Videos</button>
+        <button class="tab-btn" onclick="switchTab('videos')">🎬 Watch Stories</button>
         <button class="tab-btn" onclick="switchTab('games')">🎮 Fun Games</button>
     </div>
 
     <div class="container">
-        <!-- Ad Slot 1 (Compact) -->
+        <!-- Narrow Ad Slot 1 -->
         <div class="ad-slot">📢 Ad Slot 1</div>
 
         <!-- READ STORIES SECTION -->
         <div id="stories-section" class="section active">
             <div class="card">
                 <h3>🐢 The Brave Little Turtle's Grand Journey</h3>
-                <p>Once upon a time, near a sparkling blue stream that trickled down the green hills, lived a little turtle named Timmy. Unlike other turtles who loved resting under the shade, Timmy had a big dream: he wanted to climb to the very peak of Whispering Hill to see the golden sunset...</p>
-                <button class="btn" onclick="openStory('The Brave Little Turtle\'s Grand Journey', 'Once upon a time, near a sparkling blue stream that trickled down the green hills, lived a little turtle named Timmy. Unlike other turtles who loved resting under the shade, Timmy had a big dream: he wanted to climb to the very peak of Whispering Hill to see the golden sunset.\n\nEvery single day, while his peers laughed and told him it was too far for short legs, Timmy took slow, steady steps. He met a wise old dragonfly named Pip who taught him an invaluable secret: \'It does not matter how fast you move, little friend. What matters is that you never stop moving forward.\'\n\nEncountering slippery rocks and steep inclines, Timmy used his patience to navigate each obstacle. By the time he reached the summit, the entire sky melted into magnificent shades of orange and purple. Timmy smiled, realizing that consistency turns the impossible into reality.')">Read Full Story</button>
+                <p>Once upon a time, near a sparkling blue stream that trickled down the green hills, lived a little turtle named Timmy. Unlike other turtles who loved resting under the shade, Timmy had a big dream...</p>
+                <button class="btn" onclick="openStory('The Brave Little Turtle\'s Grand Journey', 'Chapter 1: The Spark of a Big Dream\n\nOnce upon a time, near a sparkling blue stream that trickled down the green hills, lived a little turtle named Timmy. Unlike other turtles who loved resting under the cool shade of giant ferns, Timmy had a big dream: he wanted to climb to the very peak of Whispering Hill to see the golden sunset.\n\nEvery single day, while his peers laughed and told him it was too far for short legs, Timmy took slow, steady steps. He met a wise old dragonfly named Pip who taught him an invaluable secret: \'It does not matter how fast you move, little friend. What matters is that you never stop moving forward.\'\n\nChapter 2: Crossing the Rocky Trail\n\nEncountering slippery rocks and steep inclines, Timmy used his patience to navigate each obstacle. Other animals rushed past him, getting tired quickly or giving up when paths got rough. But Timmy kept his eyes fixed on the horizon, pacing himself gracefully.\n\nAlong the trail, he shared resting spots with tired beetles and offered encouraging nods to wandering ants, showing that ambition does not mean stepping on others—it means lifting the community as you climb.\n\nChapter 3: The Golden Summit\n\nAs dusk approached, Timmy finally pulled his shell over the final ridge. The entire sky melted into magnificent shades of orange, deep purple, and gold. Timmy smiled brightly, realizing that consistency and belief in oneself turn the impossible into reality. From that day forward, no animal ever doubted the little turtle who reached the stars.')">Read Full Story (3 Pages)</button>
             </div>
 
-            <!-- Ad Slot 2 (Compact) -->
+            <!-- Narrow Ad Slot 2 -->
             <div class="ad-slot">📢 Ad Slot 2</div>
 
             <div class="card">
                 <h3>⭐ The Generous Star of the Midnight Sky</h3>
-                <p>High up in the vast, velvet-dark night sky, far beyond the reach of tall trees, lived a tiny star named Nova. While older stars preferred to shine proudly and distantly for themselves, Nova noticed a frightened little puppy wandering alone on Earth below...</p>
-                <button class="btn" onclick="openStory('The Generous Star of the Midnight Sky', 'High up in the vast, velvet-dark night sky, far beyond the reach of tall trees, lived a tiny star named Nova. While older stars preferred to shine proudly and distantly for themselves, Nova noticed a frightened little puppy wandering alone on Earth below, completely lost in a dark forest.\n\nDetermined to help, Nova gathered every ounce of energy and shone brighter than ever before, piercing through the dense canopy of trees. Seeing Nova\'s beacon of light, the friendly forest owls woke up to clear a safe path through the brush.\n\nThe puppy safely bounded back to his family\'s porch, wagging his tail in joy. Nova felt a warm glow inside, learning a profound lesson: no matter how small you feel in a big world, true generosity and kindness can illuminate the darkest nights for others.')">Read Full Story</button>
+                <p>High up in the vast, velvet-dark night sky, far beyond the reach of tall trees, lived a tiny star named Nova. While older stars preferred to shine proudly and distantly...</p>
+                <button class="btn" onclick="openStory('The Generous Star of the Midnight Sky', 'Chapter 1: The Faint Glow\n\nHigh up in the vast, velvet-dark night sky, far beyond the reach of tall trees, lived a tiny star named Nova. While older stars preferred to shine proudly and distantly for themselves, Nova noticed a frightened little puppy wandering alone on Earth below, completely lost in a dark forest.\n\nDetermined to help, Nova gathered every ounce of energy and shone brighter than ever before, piercing through the dense canopy of trees. Seeing Nova\'s beacon of light, the friendly forest owls woke up to clear a safe path through the brush.\n\nChapter 2: Guiding the Lost Home\n\nThe little puppy bounded forward, following the gentle silver beam cutting through the shadows. Wolves and foxes stepped aside respectfully, guided by the peaceful luminance radiating from above.\n\nNova began to feel tired, as keeping such a bright glow required immense focus. Yet, thinking of the puppy shivering alone pushed Nova to channel inner strength, proving that empathy stretches our limits further than we imagine.\n\nChapter 3: The Universal Lesson\n\nThe puppy safely bounded back to his family\'s porch, wagging his tail in joy as the porch lights flickered on. Nova felt a warm glow inside, learning a profound lesson: no matter how small you feel in a big world, true generosity and kindness can illuminate the darkest nights for others. From then on, Nova was known across the cosmos as the heart of the night.')">Read Full Story (3 Pages)</button>
+            </div>
+
+            <div class="card">
+                <h3>🦁 Leo the Lion Who Learned to Listen</h3>
+                <p>Deep within the golden savannah where tall acacia trees swayed, a young lion named Leo became king of his pride. Strong and fast, Leo loved roaring the loudest...</p>
+                <button class="btn" onclick="openStory('Leo the Lion Who Learned to Listen', 'Chapter 1: The Roar of Pride\n\nDeep within the golden savannah where tall acacia trees swayed, a young lion named Leo became king of his pride. Strong, fierce, and fast, Leo loved roaring the loudest and making all decisions instantly without consulting anyone.\n\nOne dry season, a severe water shortage hit the plains. Leo immediately ordered the pride to charge toward the Eastern River, assuming it was full. However, Zazu the wise hornbill tried to warn him that the river bed had dried up months ago.\n\nChapter 2: The Lesson in Silence\n\nIgnoring Zazu, Leo led everyone on a exhausting miles-long march under the blazing sun, only to find cracked mud and dust. The pride was exhausted, thirsty, and disappointed in their leader.\n\nHumbled, Leo sat down beneath a baobab tree and invited the elderly animals to share their wisdom. Tortoises and elephants explained ancient underground springs hidden beneath the rocky foothills.\n\nChapter 3: True Strength\n\nGuiding his pride to the hidden oasis, Leo drank cool water and addressed his animals. He learned that true leadership isn\'t about speaking loudest—it is about listening closest. The savannah flourished, and Leo became the greatest listener in animal kingdom history.')">Read Full Story (3 Pages)</button>
             </div>
         </div>
 
-        <!-- WATCH VIDEOS SECTION -->
+        <!-- WATCH STORIES SECTION -->
         <div id="videos-section" class="section">
             <div class="card">
-                <h3>🎬 Animated Tale: The Tortoise and the Wise Owl</h3>
-                <p>Watch an enchanting animated version of classic moral tales brought to life with sound and color!</p>
+                <h3>🐢 Animated Story: The Brave Little Turtle</h3>
+                <p>Watch Timmy the turtle's inspiring journey up Whispering Hill in full animation!</p>
                 <div class="video-container">
-                    <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Animated Story Video" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="The Brave Little Turtle Animation" allowfullscreen></iframe>
                 </div>
             </div>
 
-            <!-- Ad Slot 3 (Compact) -->
+            <!-- Narrow Ad Slot 3 -->
             <div class="ad-slot">📢 Ad Slot 3</div>
 
             <div class="card">
-                <h3>🎬 Animated Tale: Adventures in Starry Kingdom</h3>
-                <p>Join magical characters on a journey across the galaxy discovering friendship and wonders.</p>
+                <h3>⭐ Animated Story: The Generous Star</h3>
+                <p>Experience how Nova the tiny star guided the lost puppy home through magical animation.</p>
                 <div class="video-container">
-                    <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Animated Story Video 2" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="The Generous Star Animation" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="card">
+                <h3>🦁 Animated Story: Leo the Lion Who Learned to Listen</h3>
+                <p>Watch how Leo transforms from a proud roarer into a wise, listening king of the savannah.</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Leo the Lion Animation" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -300,16 +320,16 @@
         <!-- GAMES SECTION -->
         <div id="games-section" class="section">
             <div class="quiz-box">
-                <h3 id="quiz-question" style="font-size: 13pt; margin-bottom: 12px; color: #0f172a;">Loading Quiz...</h3>
+                <h3 id="quiz-question" style="font-size: 11pt; font-weight: 600; margin-bottom: 10px; color: #0f172a;">Loading Quiz...</h3>
                 <div class="quiz-options" id="quiz-options"></div>
-                <p id="quiz-score" style="margin-top: 12px; font-weight: bold; color: #d97706;"></p>
+                <p id="quiz-score" style="margin-top: 10px; font-weight: 600; color: #d97706;"></p>
             </div>
         </div>
 
-        <!-- Ad Slot 4 (Compact) -->
+        <!-- Narrow Ad Slot 4 -->
         <div class="ad-slot">📢 Ad Slot 4</div>
 
-        <!-- Ad Slot 5 (Compact) -->
+        <!-- Narrow Ad Slot 5 -->
         <div class="ad-slot">📢 Ad Slot 5</div>
     </div>
 
@@ -352,7 +372,8 @@
 
         const quizData = [
             { question: "What animal was Timmy in the story?", options: ["A fast Rabbit", "A little Turtle", "A brave Lion"], correct: 1 },
-            { question: "What did the tiny star help find its way home?", options: ["A lost puppy", "A flying bird", "A lonely kitten"], correct: 0 }
+            { question: "What did the tiny star help find its way home?", options: ["A lost puppy", "A flying bird", "A lonely kitten"], correct: 0 },
+            { question: "What important lesson did Leo the Lion learn?", options: ["How to run faster", "How to listen closely", "How to climb trees"], correct: 1 }
         ];
         let currentQuestion = 0;
         let score = 0;
@@ -360,7 +381,7 @@
         function loadQuiz() {
             if (currentQuestion >= quizData.length) {
                 document.getElementById('quiz-question').innerText = "🎉 Quiz Complete!";
-                document.getElementById('quiz-options').innerHTML = `<p style="text-align:center; font-size:12pt; color:#16a34a; margin: 15px 0;">Your Score: ${score} / ${quizData.length}</p>`;
+                document.getElementById('quiz-options').innerHTML = `<p style="text-align:center; font-size:10pt; font-weight:600; color:#16a34a; margin: 15px 0;">Your Score: ${score} / ${quizData.length}</p>`;
                 document.getElementById('quiz-score').innerHTML = `<button class="btn" onclick="resetQuiz()" style="display:block; width:100%;">Play Again</button>`;
                 return;
             }
