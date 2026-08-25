@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KidZone Hub - Premium Portal</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: "Times New Roman", Times, serif;
+            font-size: 11pt;
+        }
+
+        body {
+            background: #0f172a;
+            color: #f8fafc;
+            line-height: 1.6;
+            padding-bottom: 50px;
+        }
+
+        /* Vibrant Header Design */
+        header {
+            background: linear-gradient(135deg, #4f46e5, #9333ea, #db2777);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            border-bottom-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+        }
+
+        header h1 {
+            font-size: 22pt;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            font-size: 11pt;
+            opacity: 0.95;
+        }
+
+        /* Modern Navigation Tabs */
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            padding: 20px 10px;
+        }
+
+        .tab-btn {
+            background: #1e293b;
+            color: #94a3b8;
+            border: 1px solid #334155;
+            padding: 10px 22px;
+            border-radius: 25px;
+            font-size: 11pt;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        .tab-btn.active {
+            background: linear-gradient(135deg, #4f46e5, #9333ea);
+            color: white;
+            border-color: transparent;
+            box-shadow: 0 4px 15px rgba(79, 70, 229, 0.4);
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* Sleek Ad Slot Design */
+        .ad-slot {
+            background: #1e293b;
+            border: 2px dashed #475569;
+            color: #94a3b8;
+            text-align: center;
+            padding: 14px;
+            border-radius: 12px;
+            margin: 20px 0;
+            font-size: 10pt;
+            font-weight: bold;
+            letter-spacing: 0.5px;
+        }
+
+        .section {
+            display: none;
+        }
+
+        .section.active {
+            display: block;
+        }
+
+        /* Gorgeous Content Cards */
+        .card {
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 22px;
+            margin-bottom: 20px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            border: 1px solid #334155;
+            border-top: 5px solid #9333ea;
+            transition: transform 0.2s ease;
+        }
+
+        .card h3 {
+            font-size: 15pt;
+            color: #f1f5f9;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            font-size: 11pt;
+            color: #cbd5e1;
+            margin-bottom: 15px;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #4f46e5, #9333ea);
+            color: white;
+            border: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-size: 11pt;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(79, 70, 229, 0.3);
+            transition: opacity 0.2s;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        /* Immersive Story Modal */
+        #story-modal {
+            display: none;
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.8);
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            z-index: 100;
+            backdrop-filter: blur(5px);
+        }
+
+        .modal-content {
+            background: #1e293b;
+            border: 1px solid #475569;
+            padding: 25px;
+            border-radius: 20px;
+            max-width: 500px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5);
+        }
+
+        .modal-content h2 {
+            font-size: 18pt;
+            color: #c084fc;
+            margin-bottom: 12px;
+        }
+
+        .modal-content p {
+            font-size: 11pt;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            color: #e2e8f0;
+        }
+
+        .close-btn {
+            background: #475569;
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            float: right;
+        }
+
+        /* Interactive Quiz Box */
+        .quiz-box {
+            background: #1e293b;
+            border: 1px solid #334155;
+            padding: 25px;
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+        }
+
+        .quiz-options button {
+            display: block;
+            width: 100%;
+            padding: 12px 15px;
+            margin: 10px 0;
+            background: #0f172a;
+            border: 1px solid #475569;
+            color: #f1f5f9;
+            border-radius: 8px;
+            text-align: left;
+            font-size: 11pt;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .quiz-options button:hover {
+            background: #334155;
+            border-color: #9333ea;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>✨ KidZone Hub ✨</h1>
+        <p>Magical Bedtime Stories & Interactive Learning Games</p>
+    </header>
+
+    <div class="nav-tabs">
+        <button class="tab-btn active" onclick="switchTab('stories')">📚 Stories</button>
+        <button class="tab-btn" onclick="switchTab('games')">🎮 Fun Games</button>
+    </div>
+
+    <div class="container">
+        <!-- Ad Slot 1 -->
+        <div class="ad-slot">📢 Sponsored Ad Slot 1 (Header Banner)</div>
+
+        <!-- STORIES SECTION -->
+        <div id="stories-section" class="section active">
+            <div class="card">
+                <h3>🐢 The Brave Little Turtle</h3>
+                <p>Once upon a time, near a sparkling blue stream, lived a little turtle named Timmy who wanted to see the top of the big hill...</p>
+                <button class="btn" onclick="openStory('The Brave Little Turtle', 'Once upon a time, near a sparkling blue stream, lived a little turtle named Timmy who wanted to see the top of the big hill. While everyone told him it was too far, Timmy took slow, steady steps every single day. Along the way, he made friends with a wise dragonfly and learned that patience and consistency always win the race!')">Read Full Story</button>
+            </div>
+
+            <!-- Ad Slot 2 -->
+            <div class="ad-slot">📢 Sponsored Ad Slot 2 (In-Feed Banner)</div>
+
+            <div class="card">
+                <h3>⭐ The Generous Star</h3>
+                <p>High up in the night sky, a tiny star noticed a lost puppy down on Earth and decided to use its bright light to guide him home...</p>
+                <button class="btn" onclick="openStory('The Generous Star', 'High up in the night sky, a tiny star noticed a lost puppy down on Earth and decided to use its bright light to guide him home. The little star shone brighter than it ever had before, waking up the moon and friendly forest animals to light a safe path. The puppy reached his family safely, and the star learned that small acts of kindness light up the whole universe.')">Read Full Story</button>
+            </div>
+        </div>
+
+        <!-- GAMES SECTION -->
+        <div id="games-section" class="section">
+            <div class="quiz-box">
+                <h3 id="quiz-question" style="font-size: 14pt; margin-bottom: 15px; color: #c084fc;">Loading Quiz...</h3>
+                <div class="quiz-options" id="quiz-options"></div>
+                <p id="quiz-score" style="margin-top: 15px; font-weight: bold; color: #38bdf8;"></p>
+            </div>
+        </div>
+
+        <!-- Ad Slot 3 -->
+        <div class="ad-slot">📢 Sponsored Ad Slot 3 (Lower Content Banner)</div>
+
+        <!-- Ad Slot 4 -->
+        <div class="ad-slot">📢 Sponsored Ad Slot 4 (Footer Banner)</div>
+
+        <!-- Ad Slot 5 -->
+        <div class="ad-slot">📢 Sponsored Ad Slot 5 (Bottom Anchor Ad)</div>
+    </div>
+
+    <!-- Story Popup Modal -->
+    <div id="story-modal">
+        <div class="modal-content">
+            <h2 id="modal-title"></h2>
+            <p id="modal-text"></p>
+            <button class="close-btn" onclick="closeStory()">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function switchTab(tabName) {
+            document.querySelectorAll('.section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            
+            if(tabName === 'stories') {
+                document.getElementById('stories-section').classList.add('active');
+                event.currentTarget.classList.add('active');
+            } else {
+                document.getElementById('games-section').classList.add('active');
+                event.currentTarget.classList.add('active');
+                loadQuiz();
+            }
+        }
+
+        function openStory(title, text) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-text').innerText = text;
+            document.getElementById('story-modal').style.display = 'flex';
+        }
+
+        function closeStory() {
+            document.getElementById('story-modal').style.display = 'none';
+        }
+
+        const quizData = [
+            { question: "What animal was Timmy in the story?", options: ["A fast Rabbit", "A little Turtle", "A brave Lion"], correct: 1 },
+            { question: "What did the tiny star help find its way home?", options: ["A lost puppy", "A flying bird", "A lonely kitten"], correct: 0 }
+        ];
+        let currentQuestion = 0;
+        let score = 0;
+
+        function loadQuiz() {
+            if (currentQuestion >= quizData.length) {
+                document.getElementById('quiz-question').innerText = "🎉 Quiz Complete!";
+                document.getElementById('quiz-options').innerHTML = `<p style="text-align:center; font-size:12pt; color:#4ade80; margin: 15px 0;">Your Score: ${score} / ${quizData.length}</p>`;
+                document.getElementById('quiz-score').innerHTML = `<button class="btn" onclick="resetQuiz()" style="display:block; width:100%;">Play Again</button>`;
+                return;
+            }
+            let q = quizData[currentQuestion];
+            document.getElementById('quiz-question').innerText = `Question ${currentQuestion + 1}: ${q.question}`;
+            let optionsHTML = "";
+            q.options.forEach((opt, index) => {
+                optionsHTML += `<button onclick="checkAnswer(${index})">${opt}</button>`;
+            });
+            document.getElementById('quiz-options').innerHTML = optionsHTML;
+            document.getElementById('quiz-score').innerText = `Score: ${score}`;
+        }
+
+        function checkAnswer(selected) {
+            if (selected === quizData[currentQuestion].correct) {
+                score++;
+            }
+            currentQuestion++;
+            loadQuiz();
+        }
+
+        function resetQuiz() {
+            currentQuestion = 0;
+            score = 0;
+            loadQuiz();
+        }
+    </script>
+</body>
+</html>
+
