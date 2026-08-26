@@ -50,6 +50,28 @@
             font-weight: 400;
         }
 
+        /* Music Toggle Button Bar */
+        .music-bar {
+            background: #1e293b;
+            color: white;
+            padding: 8px;
+            text-align: center;
+            font-size: 9pt;
+            font-weight: 500;
+        }
+
+        .music-btn {
+            background: #f59e0b;
+            color: #1e293b;
+            border: none;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-left: 8px;
+            font-size: 8.5pt;
+        }
+
         /* Modern Navigation Tabs */
         .nav-tabs {
             display: flex;
@@ -188,7 +210,7 @@
             border-radius: 12px;
             max-width: 520px;
             width: 100%;
-            max-height: 82vh;
+            max-height: 85vh;
             overflow-y: auto;
             box-shadow: 0 10px 25px rgba(0,0,0,0.2);
             border-top: 5px solid #2563eb;
@@ -217,6 +239,7 @@
             cursor: pointer;
             font-weight: 600;
             float: right;
+            margin-bottom: 10px;
         }
 
         /* Quiz Box Styling */
@@ -257,6 +280,11 @@
         <p>Magical Bedtime Stories, Videos & Learning Games</p>
     </header>
 
+    <div class="music-bar">
+        ✨ Bedtime Mood: <span id="music-status">Paused</span> 
+        <button class="music-btn" id="music-toggle-btn" onclick="toggleMusic()">Play Lullaby 🎵</button>
+    </div>
+
     <div class="nav-tabs">
         <button class="tab-btn active" onclick="switchTab('stories')">📚 Read Stories</button>
         <button class="tab-btn" onclick="switchTab('videos')">🎬 Watch Stories</button>
@@ -270,9 +298,35 @@
         <!-- READ STORIES SECTION -->
         <div id="stories-section" class="section active">
             <div class="card">
+                <h3>🚀 Luna's Journey to the Silver Moon</h3>
+                <p>An epic 10-chapter space adventure following a creative little girl who builds a backyard rocket and explores the galaxy...</p>
+                <button class="btn" onclick="openStory('Luna\'s Journey to the Silver Moon', 
+                    'Chapter 1: The Cardboard Rocket\nFar beyond the twinkling stars, a brave little girl named Luna built a cardboard rocket ship in her backyard, painting it bright silver with golden stars. She wore a helmet made from a shiny bowl and strapped on a backpack full of space snacks.\n\n' +
+                    'Chapter 2: The Countdown Begins\nWith a loud countdown from ten to one, Luna closed her eyes and imagined her rocket blasting off past the clouds, leaving the sleepy neighborhood lights far below in a warm glow.\n\n' +
+                    'Chapter 3: Crossing the Cloud Ocean\nThick blankets of fluffy white clouds parted like curtains as her vessel surged upward, revealing the magnificent, infinite violet vault of outer space speckled with diamond constellations.\n\n' +
+                    'Chapter 4: Dancing with Comets\nFriendly comets zipped past, trailing sparkling dust of blue and gold. A tiny glowing alien rabbit hopped out from behind a crater and offered Luna a tour of the Milky Way.\n\n' +
+                    'Chapter 5: The Asteroid Ring Playground\nThey bounced across glowing asteroid rings like trampolines, laughing as zero gravity made them float gently like feathers in the cosmic wind.\n\n' +
+                    'Chapter 6: The Whispering Nebula\nPassing through a majestic cloud of pink and turquoise gas, Luna heard soft, musical hums that sounded like lullabies sung by the universe itself.\n\n' +
+                    'Chapter 7: Catching a Falling Star\nA playful baby star tumbled right into her space net. Luna gently untangled it from space vines and guided it safely back to its proper constellation.\n\n' +
+                    'Chapter 8: The Silver Moon Landing\nFinally, her nosecone gently touched down on the powdery surface of the silver moon. She planted a small flag made of recycled paper that read: \'Curiosity is the key to the stars.\'\n\n' +
+                    'Chapter 9: The Cosmic Panorama\nStanding on the lunar ridge, she looked across the vast horizon and watched Earth shining like a blue marble in the dark expanse, realizing how precious home truly is.\n\n' +
+                    'Chapter 10: Returning to Dreamland\nWhen the moonbeams began to dim, Luna kissed her space rabbit friend goodbye and drifted safely back down through the atmosphere, landing right in her cozy bed just as morning arrived.')">Read Epic Story (10 Chapters)</button>
+            </div>
+
+            <div class="card">
                 <h3>🐢 The Brave Little Turtle's Grand Journey</h3>
-                <p>Once upon a time, near a sparkling blue stream that trickled down the green hills, lived a little turtle named Timmy. Unlike other turtles who loved resting under the shade, Timmy had a big dream...</p>
-                <button class="btn" onclick="openStory('The Brave Little Turtle\'s Grand Journey', 'Chapter 1: The Spark of a Big Dream\n\nOnce upon a time, near a sparkling blue stream that trickled down the green hills, lived a little turtle named Timmy. Unlike other turtles who loved resting under the cool shade of giant ferns, Timmy had a big dream: he wanted to climb to the very peak of Whispering Hill to see the golden sunset.\n\nEvery single day, while his peers laughed and told him it was too far for short legs, Timmy took slow, steady steps. He met a wise old dragonfly named Pip who taught him an invaluable secret: \'It does not matter how fast you move, little friend. What matters is that you never stop moving forward.\'\n\nChapter 2: Crossing the Rocky Trail\n\nEncountering slippery rocks and steep inclines, Timmy used his patience to navigate each obstacle. Other animals rushed past him, getting tired quickly or giving up when paths got rough. But Timmy kept his eyes fixed on the horizon, pacing himself gracefully.\n\nAlong the trail, he shared resting spots with tired beetles and offered encouraging nods to wandering ants, showing that ambition does not mean stepping on others—it means lifting the community as you climb.\n\nChapter 3: The Golden Summit\n\nAs dusk approached, Timmy finally pulled his shell over the final ridge. The entire sky melted into magnificent shades of orange, deep purple, and gold. Timmy smiled brightly, realizing that consistency and belief in oneself turn the impossible into reality. From that day forward, no animal ever doubted the little turtle who reached the stars.')">Read Full Story (3 Pages)</button>
+                <p>An inspiring 10-chapter tale about a small turtle with an enormous dream to climb Whispering Hill...</p>
+                <button class="btn" onclick="openStory('The Brave Little Turtle\'s Grand Journey', 
+                    'Chapter 1: The Spark of a Big Dream\nIn a sparkling blue stream trickling down green hills lived Timmy. Unlike turtles who rested under cool ferns, Timmy dreamed of climbing Whispering Hill to see the golden sunset.\n\n' +
+                    'Chapter 2: The Doubters Below\nEvery single day, while peers laughed and said it was too far for short legs, Timmy took slow, steady steps forward, keeping his chin up high.\n\n' +
+                    'Chapter 3: Meeting a Wise Mentor\nHe met a wise old dragonfly named Pip who taught him an invaluable secret: \'It does not matter how fast you move. What matters is that you never stop moving forward.\'\n\n' +
+                    'Chapter 4: Entering the Dense Forest\nThe path grew dark beneath heavy branches, but Timmy used the faint moss glow to guide his tiny webbed feet past hidden roots and fallen acorns.\n\n' +
+                    'Chapter 5: Crossing the Rocky Trail\nEncountering slippery stones and steep inclines, Timmy used patience to navigate each obstacle while others rushed past and burned out early.\n\n' +
+                    'Chapter 6: Helping a Weary Beetle\nAlong the trail, he shared resting spots with tired beetles and offered encouraging nods to wandering ants, showing true ambition lifts the community.\n\n' +
+                    'Chapter 7: The Sudden Rainstorm\nA heavy downpour flooded the pathway. Timmy tucked snugly into his durable shell until the storm passed safely over the mountain ridge.\n\n' +
+                    'Chapter 8: The Steep Cliffside\nThe final stretch required immense focus. One slow step at a time, he gripped the rocky crevices without looking down at the valley below.\n\n' +
+                    'Chapter 9: The Golden Summit\nAs dusk approached, Timmy finally pulled his shell over the final ridge. The sky melted into magnificent shades of orange, purple, and gold.\n\n' +
+                    'Chapter 10: A Legend Born\nTimmy smiled brightly, realizing consistency turns the impossible into reality. From then on, no animal ever doubted the little turtle who reached the stars.')">Read Epic Story (10 Chapters)</button>
             </div>
 
             <!-- Narrow Ad Slot 2 -->
@@ -280,19 +334,47 @@
 
             <div class="card">
                 <h3>⭐ The Generous Star of the Midnight Sky</h3>
-                <p>High up in the vast, velvet-dark night sky, far beyond the reach of tall trees, lived a tiny star named Nova. While older stars preferred to shine proudly and distantly...</p>
-                <button class="btn" onclick="openStory('The Generous Star of the Midnight Sky', 'Chapter 1: The Faint Glow\n\nHigh up in the vast, velvet-dark night sky, far beyond the reach of tall trees, lived a tiny star named Nova. While older stars preferred to shine proudly and distantly for themselves, Nova noticed a frightened little puppy wandering alone on Earth below, completely lost in a dark forest.\n\nDetermined to help, Nova gathered every ounce of energy and shone brighter than ever before, piercing through the dense canopy of trees. Seeing Nova\'s beacon of light, the friendly forest owls woke up to clear a safe path through the brush.\n\nChapter 2: Guiding the Lost Home\n\nThe little puppy bounded forward, following the gentle silver beam cutting through the shadows. Wolves and foxes stepped aside respectfully, guided by the peaceful luminance radiating from above.\n\nNova began to feel tired, as keeping such a bright glow required immense focus. Yet, thinking of the puppy shivering alone pushed Nova to channel inner strength, proving that empathy stretches our limits further than we imagine.\n\nChapter 3: The Universal Lesson\n\nThe puppy safely bounded back to his family\'s porch, wagging his tail in joy as the porch lights flickered on. Nova felt a warm glow inside, learning a profound lesson: no matter how small you feel in a big world, true generosity and kindness can illuminate the darkest nights for others. From then on, Nova was known across the cosmos as the heart of the night.')">Read Full Story (3 Pages)</button>
+                <p>A heartwarming 10-chapter adventure about a tiny star whose bright empathy illuminates the darkest forest...</p>
+                <button class="btn" onclick="openStory('The Generous Star of the Midnight Sky', 
+                    'Chapter 1: The Faint Glow\nHigh up in the vast velvet night sky, far beyond tall trees, lived tiny star Nova. While older stars shone proudly for themselves, Nova noticed a lost puppy down on Earth.\n\n' +
+                    'Chapter 2: Gathering Inner Light\nDetermined to help, Nova gathered every ounce of energy and shone brighter than ever before, piercing through the dense canopy of dark forest trees.\n\n' +
+                    'Chapter 3: Awakening the Forest Guardians\nSeeing Nova\'s beacon of light, friendly forest owls woke up to clear a safe path through the brush for the shivering puppy.\n\n' +
+                    'Chapter 4: The Shadowy Ravine\nThe puppy faced a deep ravine. Nova intensified the beam, casting a golden bridge of light across the rocks so the puppy could cross safely.\n\n' +
+                    'Chapter 5: Meeting Woodland Friends\nWolves and foxes stepped aside respectfully, guided by the peaceful luminance radiating from above rather than fear.\n\n' +
+                    'Chapter 6: The Test of Endurance\nNova began to feel tired, as keeping such a bright glow required immense focus. Yet thinking of the puppy pushed Nova to stretch limits further.\n\n' +
+                    'Chapter 7: Clearing the Final Ridge\nWith one final push of warmth, the dark woods parted, revealing the familiar fences and lights of human homes in the distance.\n\n' +
+                    'Chapter 8: The Reunited Family\nThe puppy safely bounded back to his family\'s porch, wagging his tail in joy as porch lights flickered on in celebration.\n\n' +
+                    'Chapter 9: The Universal Lesson\nNova felt a warm glow inside, learning that true generosity and kindness can illuminate the darkest nights for others in need.\n\n' +
+                    'Chapter 10: The Heart of the Night\nFrom that night onward, Nova was known across the entire cosmos as the guardian light who proved even the smallest sparks change worlds.')">Read Epic Story (10 Chapters)</button>
             </div>
 
             <div class="card">
                 <h3>🦁 Leo the Lion Who Learned to Listen</h3>
-                <p>Deep within the golden savannah where tall acacia trees swayed, a young lion named Leo became king of his pride. Strong and fast, Leo loved roaring the loudest...</p>
-                <button class="btn" onclick="openStory('Leo the Lion Who Learned to Listen', 'Chapter 1: The Roar of Pride\n\nDeep within the golden savannah where tall acacia trees swayed, a young lion named Leo became king of his pride. Strong, fierce, and fast, Leo loved roaring the loudest and making all decisions instantly without consulting anyone.\n\nOne dry season, a severe water shortage hit the plains. Leo immediately ordered the pride to charge toward the Eastern River, assuming it was full. However, Zazu the wise hornbill tried to warn him that the river bed had dried up months ago.\n\nChapter 2: The Lesson in Silence\n\nIgnoring Zazu, Leo led everyone on a exhausting miles-long march under the blazing sun, only to find cracked mud and dust. The pride was exhausted, thirsty, and disappointed in their leader.\n\nHumbled, Leo sat down beneath a baobab tree and invited the elderly animals to share their wisdom. Tortoises and elephants explained ancient underground springs hidden beneath the rocky foothills.\n\nChapter 3: True Strength\n\nGuiding his pride to the hidden oasis, Leo drank cool water and addressed his animals. He learned that true leadership isn\'t about speaking loudest—it is about listening closest. The savannah flourished, and Leo became the greatest listener in animal kingdom history.')">Read Full Story (3 Pages)</button>
+                <p>An educational 10-chapter story about a proud young lion discovering that true leadership requires listening...</p>
+                <button class="btn" onclick="openStory('Leo the Lion Who Learned to Listen', 
+                    'Chapter 1: The Roar of Pride\nDeep within the golden savannah where tall acacia trees swayed, young lion Leo became king of his pride, loving to roar loudest and command instantly.\n\n' +
+                    'Chapter 2: The Dry Season Arrives\nA severe water shortage hit the plains. Leo immediately ordered the pride to charge toward the Eastern River, assuming it was full.\n\n' +
+                    'Chapter 3: Ignored Warnings\nZazu the wise hornbill tried to warn him the river bed had dried up months ago, but Leo waved his paw dismissively and pushed forward.\n\n' +
+                    'Chapter 4: The Exhausting March\nLeo led everyone on a grueling miles-long march under the blazing sun, only to find cracked mud and blowing dust.\n\n' +
+                    'Chapter 5: Disappointment in the Pride\nThe pride was exhausted, thirsty, and deeply disappointed in their leader\'s refusal to take counsel from experienced elders.\n\n' +
+                    'Chapter 6: Seeking Shade and Wisdom\nHumbled, Leo sat down beneath a grand baobab tree and invited elderly animals to share their historic wisdom.\n\n' +
+                    'Chapter 7: Secrets of the Savannah\nWise tortoises and grand elephants explained ancient underground springs hidden safely beneath the rocky foothills.\n\n' +
+                    'Chapter 8: Journey to the Hidden Oasis\nTrusting his elders, Leo guided his thirsty pride through the cool canyon shadows directly to crystal-clear underground pools.\n\n' +
+                    'Chapter 9: The Transformation\nDrinking cool water, Leo addressed his animals, realizing true leadership isn\'t about speaking loudest—it is about listening closest.\n\n' +
+                    'Chapter 10: A Flourishing Kingdom\nThe savannah thrived under his guidance, and Leo went down in history as the greatest listener the animal kingdom ever knew.')">Read Epic Story (10 Chapters)</button>
             </div>
         </div>
 
         <!-- WATCH STORIES SECTION -->
         <div id="videos-section" class="section">
+            <div class="card">
+                <h3>🚀 Animated Story: Luna's Space Journey</h3>
+                <p>Watch Luna blast off past the stars in this magical space exploration animation!</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ" title="Luna Space Journey Animation" allowfullscreen></iframe>
+                </div>
+            </div>
+
             <div class="card">
                 <h3>🐢 Animated Story: The Brave Little Turtle</h3>
                 <p>Watch Timmy the turtle's inspiring journey up Whispering Hill in full animation!</p>
@@ -340,9 +422,10 @@
     <!-- Story Popup Modal -->
     <div id="story-modal">
         <div class="modal-content">
+            <button class="close-btn" onclick="closeStory()">Close ✕</button>
             <h2 id="modal-title"></h2>
             <p id="modal-text" style="white-space: pre-line;"></p>
-            <button class="close-btn" onclick="closeStory()">Close</button>
+            <button class="close-btn" onclick="closeStory()" style="float:none; display:block; width:100%; margin-top:15px;">Close Story</button>
         </div>
     </div>
 
@@ -374,7 +457,63 @@
             document.getElementById('story-modal').style.display = 'none';
         }
 
+        /* Ambient Lullaby Sound Synthesizer */
+        let audioCtx = null;
+        let isPlayingMusic = false;
+        let musicInterval = null;
+
+        function toggleMusic() {
+            const statusEl = document.getElementById('music-status');
+            const btnEl = document.getElementById('music-toggle-btn');
+
+            if (!isPlayingMusic) {
+                if (!audioCtx) {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                }
+                if (audioCtx.state === 'suspended') {
+                    audioCtx.resume();
+                }
+                isPlayingMusic = true;
+                statusEl.innerText = "Playing Lullaby 🎶";
+                btnEl.innerText = "Pause Music ⏸";
+                startLullabyLoop();
+            } else {
+                isPlayingMusic = false;
+                statusEl.innerText = "Paused";
+                btnEl.innerText = "Play Lullaby 🎵";
+                clearInterval(musicInterval);
+            }
+        }
+
+        function playTone(freq) {
+            if (!isPlayingMusic || !audioCtx) return;
+            try {
+                let osc = audioCtx.createOscillator();
+                let gain = audioCtx.createGain();
+                osc.type = 'sine';
+                osc.frequency.value = freq;
+                gain.gain.setValueAtTime(0.03, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.0001, audioCtx.currentTime + 3.0);
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                osc.start();
+                osc.stop(audioCtx.currentTime + 3.0);
+            } catch(e) {}
+        }
+
+        function startLullabyLoop() {
+            const notes = [261.63, 329.63, 392.00, 523.25, 392.00, 329.63]; // C E G C5 G E
+            let index = 0;
+            playTone(notes[index]);
+            musicInterval = setInterval(() => {
+                if (!isPlayingMusic) return;
+                index = (index + 1) % notes.length;
+                playTone(notes[index]);
+            }, 3500);
+        }
+
         const quizData = [
+            { question: "What did Luna build in her backyard?", options: ["A cardboard rocket ship", "A wooden treehouse", "A fast racing car"], correct: 0 },
             { question: "What animal was Timmy in the story?", options: ["A fast Rabbit", "A little Turtle", "A brave Lion"], correct: 1 },
             { question: "What did the tiny star help find its way home?", options: ["A lost puppy", "A flying bird", "A lonely kitten"], correct: 0 },
             { question: "What important lesson did Leo the Lion learn?", options: ["How to run faster", "How to listen closely", "How to climb trees"], correct: 1 }
